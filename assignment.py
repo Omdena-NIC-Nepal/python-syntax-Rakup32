@@ -20,9 +20,9 @@ def conditional_check(number):
     if (number>10 ):
          return "Greater"
     if (number<10):
-        return "lesser"
+        return "Lesser"
     else :
-        return "equal"
+        return "Equal"
 
 def loop_sum(n):
     """
@@ -75,9 +75,9 @@ def set_operations(list1, list2):
     Returns:
         set: Common elements
     """
-    common_element =  set ( set(list1)&set(list2))
+    common_element =  set ( set(list1).intersection(set(list2)))
     
-    return("common_element")
+    return common_element
     
 
 def arithmetic_ops(a, b):
@@ -89,16 +89,21 @@ def arithmetic_ops(a, b):
     Returns:
         dict: Results of arithmetic operations
     """
-    sum = float(a+b)
-    diff = float (a-b)
-    mult = float(a*b)
+    sum = float (a+b)
+    difference = float (a-b)
+    product = float(a*b)
     try:
-      div = float (a/b)
+      quotient = float (a/b)
     except ZeroDivisionError :
-        div =0 
+        quotient =0 
         print (" Error ! : cannot divide by zero ")
     
-    return (sum , diff ,mult ,div)
+    return  {  
+        "sum": sum,
+        "difference": difference,
+        "product": product,
+        "quotient": quotient
+    }
 
 
 def logical_ops(x, y):
@@ -110,7 +115,7 @@ def logical_ops(x, y):
     Returns:
         dict: Results of logical operations
     """ 
-    dict_log = {"And": x and y , "OR": x or y , "xor": x or y }
+    dict_log = {"and": x and y , "or": x or y , "not_x": not x }
     return(dict_log)
 
 def bitwise_ops(a, b):
@@ -122,5 +127,5 @@ def bitwise_ops(a, b):
     Returns:
         dict: Results of bitwise operations
     """
-    dit_bit = {"And": a & b , "OR": a | b  , "xor": a^b }
+    dit_bit = {'and': a & b , 'or': a | b  , 'xor': a^b }
     return (dit_bit)
